@@ -1,0 +1,14 @@
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" [containerInside]="false">
+        <mdb-navbar-brand><h1><i class="fab fa-youtube"></i><p class="navbar-brand">Youtube</p></h1></mdb-navbar-brand>
+        <links>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+              <a class="nav-link waves-light" routerLink="/" mdbWavesEffect>All videos<span *ngIf="router.url === '/'" class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link waves-light" routerLink="/favorites" mdbWavesEffect>My Favorites<span *ngIf="router.url === '/favorites'" class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </links>
+    </mdb-navbar>
+

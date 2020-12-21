@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss";
+
+
+// Variable Overrides
+$primary-color: #c62828;
+$primary-color-dark: #942929;
+$secondary-color: #1c2331;
+$secondary-color-dark: #161c27;
+$body-bg: #dedcdc;
+$body-color: #fefefc;
+$theme-colors: ("primary": $primary-color, "secondary": $secondary-color);
+
+
+@import "node_modules/angular-bootstrap-md/assets/scss/mdb.scss";
+$material-colors: (
+	"primary-color": $primary-color,
+	"primary-color-dark": $primary-color-dark,
+	"secondary-color": $secondary-color,
+	"secondary-color-dark": $secondary-color-dark
+);

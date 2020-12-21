@@ -1,0 +1,48 @@
+<section class="text-center py-5">
+
+  <div class="md-form active-red active-red-2">
+    <input placeholder="Search videos" id="searchVideos" type="text" class="input" [(ngModel)]="searchStr">
+    <label for="searchVideos"></label>
+  </div>
+
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+    <p style="font-size: 20px; color: white"> Loading... </p>
+  </ngx-spinner>
+
+
+  <div class="row">
+
+    <div class="d-flex align-items-stretch col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-5"
+      *ngFor="let video of videos | search:searchStr">
+
+      <mdb-card cascade="true" narrower="true" class="card-ecommerce">
+
+        <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+          <a href="https://www.youtube.com/watch?v={{video.id}}" target="_blank">
+            <img [src]="video.thumbnailUrl" class="videos_img" alt="..."></a>
+        </div>
+        
+
+        <mdb-card-body cascade="true" class="text-center">
+
+          <mdb-card-title>
+            <h5><a class="videos_title"
+                href="https://www.youtube.com/watch?v={{video.id}}">{{video.title}}</a></h5>
+            <div class="videos_suptitle">{{video.description.slice(0, 100)}}</div>
+          </mdb-card-title>
+
+          <mdb-card-footer class="px-0">
+            <span class="float-right">
+              <a (click)="favoriteToggle(video.id)" data-toggle="tooltip" data-placement="top"
+                title="Add to my favorites">
+              <mdb-icon fas icon="star" [class.amber-text]="favorites[video.id]?.isFavorite" class="ml-3"></mdb-icon>
+              </a>
+            </span>
+          </mdb-card-footer>
+
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+  <button type="button" class="btn btn-dark" (click)="loadMore()">Загрузить ещё</button>
+</section>
